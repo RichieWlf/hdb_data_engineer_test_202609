@@ -13,11 +13,11 @@ Environment was created with the following packages and versions
 
 The Input folder is created under "C:\Users\xxx" where "xxx" is the username (C:\Users\xxx\Input) and these files are unzipped from ResaleFlatPrices.zip:-
 
-Resale Flat Prices (Based on Approval Date), 1990 - 1999.csv
-Resale Flat Prices (Based on Approval Date), 2000 - Feb 2012.csv
-Resale Flat Prices (Based on Registration Date), From Jan 2015 to Dec 2016.csv
-Resale Flat Prices (Based on Registration Date), From Mar 2012 to Dec 2014.csv
-Resale flat prices based on registration date from Jan-2017 onwards.csv
+1) Resale Flat Prices (Based on Approval Date), 1990 - 1999.csv
+2) Resale Flat Prices (Based on Approval Date), 2000 - Feb 2012.csv
+3) Resale Flat Prices (Based on Registration Date), From Jan 2015 to Dec 2016.csv
+4) Resale Flat Prices (Based on Registration Date), From Mar 2012 to Dec 2014.csv
+5) Resale flat prices based on registration date from Jan-2017 onwards.csv
 
 The Output folder is created under "C:\Users\xxx" where "xxx" is the username (C:\Users\xxx\Output) so that all the generated outputs are placed into it.
 

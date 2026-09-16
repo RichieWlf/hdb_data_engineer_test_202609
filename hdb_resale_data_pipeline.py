@@ -7,8 +7,8 @@ from ydata_profiling import ProfileReport
 # Global Variables and Configuration
 # =========================================================
 
-input_path = "C:\\Users\\xxx\\Input\\"
-output_path = "C:\\Users\\xxx\\Output\\"
+input_path = "C:\\Users\\Ryusei\\Documents\\HDB application\\Input\\"
+output_path = "C:\\Users\\Ryusei\\Documents\\HDB application\\Output\\"
 
 files = {
     "1990_1999": "Resale Flat Prices (Based on Approval Date), 1990 - 1999.csv",
@@ -196,11 +196,15 @@ def derive_resale_identifier(df: pd.DataFrame, key_cols: list) -> pd.DataFrame:
         "S" + final_hdb_resale_identifier_df["block_code"] + final_hdb_resale_identifier_df["avg_price_first2digits"] + 
         final_hdb_resale_identifier_df["month_code"] + final_hdb_resale_identifier_df["town_code"]
     )
+    identifier_key_cols = key_cols.copy()
+    for col in ("remaining_lease_years", "remaining_lease_months"):
+        if col in identifier_key_cols:
+            identifier_key_cols.remove(col)
     
     #To create the unique identifier based on the columns used for removing duplicates and the Raw Resale Identifier
     final_hdb_resale_identifier_df["resale_identifier_raw"] = (
         final_hdb_resale_identifier_df["resale_code"] + "|" +
-        final_hdb_resale_identifier_df[key_cols].astype(str).agg("|".join, axis=1)
+        final_hdb_resale_identifier_df[identifier_key_cols].astype(str).agg("|".join, axis=1)
     )
     
     #Hashing using sha256 on the raw Resale Identifier
@@ -285,7 +289,7 @@ if __name__ == "__main__":
     format_month_for_output(final_hdb_resale_dropped_dups_df).to_csv(output_path+"Quarantined-dropped_duplicates_hdb_resale.csv", index=False)
 
     print("(4) Deriving Resale Identifier and creating output file...")
-    final_hdb_resale_identifier_df = derive_resale_identifier(final_hdb_resale_dups_rem_df, key_cols)
+    final_hdb_resale_identifier_df = derive_resale_identifier(final_hdb_resale_dups_rem_output_df, key_cols)
     format_month_for_output(final_hdb_resale_identifier_df).to_csv(output_path+"Hashed-combined_hdb_resale_with_identifier.csv", index=False)
 
     print("(5) To check if there are any anomalies in the resale price and creating output file...")

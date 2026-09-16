@@ -7,8 +7,8 @@ from ydata_profiling import ProfileReport
 # Global Variables and Configuration
 # =========================================================
 
-input_path = "C:\\Users\\Ryusei\\Documents\\HDB application\\Input\\"
-output_path = "C:\\Users\\Ryusei\\Documents\\HDB application\\Output\\"
+input_path = "C:\\Users\\xxx\\Input\\"
+output_path = "C:\\Users\\xxx\\Output\\"
 
 files = {
     "1990_1999": "Resale Flat Prices (Based on Approval Date), 1990 - 1999.csv",

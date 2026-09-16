@@ -32,6 +32,7 @@ Output Files:-
 2) Files that are prefixed with "Hashed" are the data with the resale_identifier hashed key
 3) Files that are prefixed with "Quarantined" are the duplicates that were removed and anomaly records, each created into its own file so that the analysis can be performed separately
 4) The .html file is the data profiling results using ydata-profiling
+5) Large files have been compressed using 7zip and require 7zip to unzip it due to the limitations of uploading into github
 
 To run, the following is required
 ### requirements.txt
